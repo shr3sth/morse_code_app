@@ -37,7 +37,9 @@ def encode_text(text):
     result = []
 
     for letter in text:
-        if letter in MORSE_CODE:
+        if letter == " ":
+            result.append("/")
+        elif letter in MORSE_CODE:
             result.append(MORSE_CODE[letter])
 
     return " ".join(result)
@@ -47,11 +49,11 @@ def decode_morse(morse):
     result = []
 
     for code in morse.split():
-        if code in REVERSE_MORSE:
+
+        if code == "/":
+            result.append(" ")
+
+        elif code in REVERSE_MORSE:
             result.append(REVERSE_MORSE[code])
 
     return "".join(result)
-
-
-print(encode_text("this is a bad idea"))
-print(decode_morse(".... . .-.. .-.. ---"))
