@@ -1,0 +1,14 @@
+# Virtual Environment
+venv/
+
+# Python cache
+__pycache__/
+
+# Compiled Python files
+*.pyc
+
+# VS Code settings
+.vscode/
+
+# Linux temporary files
+*~
