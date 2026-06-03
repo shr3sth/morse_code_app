@@ -41,7 +41,7 @@ Built with Python and CustomTkinter on Linux.
 Clone the repository:
 
 ```bash
-git clone <your-repo-url>
+git clone https://github.com/shr3sth/morse_code_app
 cd morse-code-app
 ```
 
