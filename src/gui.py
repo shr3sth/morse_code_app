@@ -1,8 +1,11 @@
 import customtkinter as ctk
 from morse import encode_text, decode_morse
-
+import pygame
+import numpy as np
+import time
 
 ctk.set_appearance_mode("dark")
+pygame.mixer.init()
 
 app = ctk.CTk()
 
@@ -238,6 +241,87 @@ def copy_output():
     )
 
 
+def generate_beep(frequency=700, duration=0.2):
+
+    sample_rate = 44100
+
+    t = np.linspace(
+        0,
+        duration,
+        int(sample_rate * duration),
+        False
+    )
+
+    tone = np.sin(
+        frequency * 2 * np.pi * t
+    )
+
+    audio = (
+        tone * 32767
+    ).astype(np.int16)
+
+    audio = np.column_stack(
+        (audio, audio)
+    )
+
+    sound = pygame.sndarray.make_sound(
+        audio
+    )
+
+    sound.play()
+
+
+def play_dot():
+    generate_beep(duration=0.1)
+
+
+def play_dash():
+    generate_beep(duration=0.3)
+
+
+def play_morse_string(morse_text):
+
+    DOT_TIME = 0.20
+    DASH_TIME = 0.60
+    GAP_TIME = 0.20
+
+    for symbol in morse_text:
+
+        if symbol == ".":
+            play_dot()
+            time.sleep(0.25)
+
+        elif symbol == "-":
+            play_dash()
+            time.sleep(0.60)
+
+        elif symbol == " ":
+            time.sleep(0.40)
+
+        elif symbol == "/":
+            time.sleep(1.00)
+
+
+def play_morse_audio():
+
+    morse_text = output_box.get(
+        "1.0",
+        "end"
+    ).strip()
+
+    if not morse_text:
+        status_label.configure(
+            text="No Morse code to play"
+        )
+        return
+
+    status_label.configure(
+        text="Audio Playback Started..."
+    )
+    app.update()
+    play_morse_string(morse_text)
+
+
 title_label = ctk.CTkLabel(
     app,
     text="Morse Code Converter",
@@ -331,6 +415,21 @@ copy_button = ctk.CTkButton(
 copy_button.grid(
     row=1,
     column=1,
+    padx=10,
+    pady=5
+)
+
+play_audio_button = ctk.CTkButton(
+    button_frame,
+    text="Play Audio",
+    command=play_morse_audio,
+    width=180
+)
+
+play_audio_button.grid(
+    row=2,
+    column=0,
+    columnspan=2,
     padx=10,
     pady=5
 )

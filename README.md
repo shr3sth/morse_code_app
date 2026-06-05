@@ -1,18 +1,50 @@
 # Morse Code Converter
 
-A beginner-friendly Python application that converts text to Morse code and Morse code back to text.
+A desktop Morse Code Converter built with Python and CustomTkinter.
 
-Built with Python and CustomTkinter on Linux.
+This application can:
+
+- Encode text into Morse code
+- Decode Morse code into text
+- Play Morse code as audio
+- Generate Morse code manually using an interactive Morse Pad
+- Live decode Morse code entered through the Morse Pad
+- Copy output directly to the clipboard
+
+---
 
 ## Features
 
-- Encode text to Morse code
-- Decode Morse code to text
-- Clean dark-themed GUI
-- Copy output to clipboard
-- Clear input/output fields
-- Interactive Morse Pad
-- Live Morse decoding in Morse Pad
+### Text → Morse Conversion
+
+Convert plain text into Morse code instantly.
+
+### Morse → Text Conversion
+
+Decode Morse code back into readable text.
+
+### Interactive Morse Pad
+
+Create Morse code manually using:
+
+- Dot (.)
+- Dash (-)
+- Letter Space
+- Word Space
+
+### Live Decoding
+
+The Morse Pad automatically decodes Morse code while you type.
+
+### Audio Playback
+
+Play Morse code as audible beeps with proper Morse timing.
+
+### Clipboard Support
+
+Copy generated Morse code with a single click.
+
+---
 
 ## Screenshots
 
@@ -20,21 +52,36 @@ Built with Python and CustomTkinter on Linux.
 
 ![Main Window](screenshots/Base_Window.png)
 
-### Text to Morse Encoding
+### Text Encoding
 
-![Encoding](screenshots/Encoder.png)
+![Encoder](screenshots/Encoder.png)
 
-### Morse to Text Decoding
+### Text Decoding and Clipboard Support
 
-![Decoding](screenshots/decoder_and_copy.png)
+![Decoder](screenshots/decoder_and_copy.png)
 
 ### Morse Pad
 
 ![Morse Pad](screenshots/Morse_pad.png)
 
-### Live Decoding
+### Live Decoding in Morse Pad
 
 ![Live Decoding](screenshots/real_time_conversion_on_the_morse_pad.png)
+
+### Audio Playback
+
+![Audio Playback](screenshots/audio_playback.png)
+
+---
+
+## Technologies Used
+
+- Python
+- CustomTkinter
+- NumPy
+- Pygame
+
+---
 
 ## Installation
 
@@ -54,37 +101,38 @@ source venv/bin/activate
 
 Install dependencies:
 
-## Install dependencies:
-
 ```bash
 pip install -r requirements.txt
 ```
 
-## Run
+Run the application:
 
 ```bash
 python src/gui.py
 ```
 
-## Technologies Used
-
-- Python
-- CustomTkinter
-- Git
-- GitHub
+---
 
 ## Project Status
 
-Current Version: v2.0
+Version: 3.0
 
-Completed:
+Current Features:
 
-- Core Morse Engine
-- GUI Converter
-- Clipboard Support
+- Text ↔ Morse conversion
+- Audio playback
 - Interactive Morse Pad
-- Live Decoding
+- Live decoding
+- Clipboard support
 
-Planned:
+Future Ideas:
 
-- Audio Playback (v3.0)
+- Real-time Morse audio from Morse Pad
+- Export Morse audio to WAV
+- Hardware integration with microcontrollers and LEDs
+
+---
+
+## Author
+
+Shresth
