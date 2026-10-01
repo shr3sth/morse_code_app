@@ -89,7 +89,7 @@ Clone the repository:
 
 ```bash
 git clone https://github.com/shr3sth/morse_code_app
-cd morse-code-app
+cd morse_code_app
 ```
 
 Create a virtual environment:
