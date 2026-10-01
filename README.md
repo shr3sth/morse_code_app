@@ -104,6 +104,20 @@ Install dependencies:
 ```bash
 pip install -r requirements.txt
 ```
+## System Dependencies
+
+This application uses Tkinter for its GUI.
+On Linux, Tkinter may need to be installed separately
+using your distribution's package manager.
+
+### Ubuntu / Debian / Linux Mint
+sudo apt install python3-tk
+
+### Arch Linux / CatchyOS / EndeavourOS
+sudo pacman -S tk
+
+### Fedora
+sudo dnf install python3-tkinter
 
 Run the application:
 
